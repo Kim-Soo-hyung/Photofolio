@@ -32,8 +32,24 @@ mysql
 
 
 
+
+
+
+
+
+
+
 <구매자 목록>
 <img width="542" alt="image" src="https://user-images.githubusercontent.com/116542845/202193174-2c418a83-e799-4e45-9c04-a55705c9b94d.png">
+
+
+
+
+
+
+
+
+
 
 
 
