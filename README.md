@@ -12,7 +12,7 @@ Portfolio
 Eclipse ->
 JDK ->
 Tomcat 8.0 ->
-mysql ->
+mysql 
 
 
 
