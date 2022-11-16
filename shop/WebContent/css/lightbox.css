@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#background {
+   position: fixed;
+   top:0px; left:0px; right:0px;
+   height: 100%;
+   display: none;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 10000;
+   overflow-y: scroll;
+}
+
+#lightbox {
+    width: 700px;
+    margin: 20px auto; padding:50px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0px 5px 5px rgba(34, 25, 25, 0.4);
+    text-align: center;
+    color:black;
+}
