@@ -24,6 +24,8 @@ mysql ->
 
 <상품목록정보>
 <img width="919" alt="image" src="https://user-images.githubusercontent.com/116542845/202191230-d74c065d-8e00-4f44-af4d-7383178cbe59.png">
+<img width="1235" alt="image" src="https://user-images.githubusercontent.com/116542845/202204224-7d45dc13-9ef7-4d0c-a916-b5e4746cbf28.png">
+<img width="1010" alt="image" src="https://user-images.githubusercontent.com/116542845/202206391-d44895a4-1cdb-40b0-a47c-3c4b61e5ff13.png">
 
 
 
