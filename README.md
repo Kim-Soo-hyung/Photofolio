@@ -9,10 +9,10 @@ Portfolio
 
 언어
 
-Eclipse 
-JDK
-Tomcat 8.0
-mysql
+Eclipse ->
+JDK ->
+Tomcat 8.0 ->
+mysql ->
 
 
 
