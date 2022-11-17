@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.PboardMapper">
+
+	<select id="list" resultType="com.example.domain.PboardVO">
+		select
+		pcode, ptitle, pcontent,
+		pwriter, pimage, pprice, regDate,
+		updateDate, viewcnt, plike,pname
+		from tbl_pboard
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE ptitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE pcontent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE ptitle LIKE concat('%', #{keyword}, '%')
+			or pcontent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("작성자")'>
+			WHERE pwriter LIKE concat('%', #{keyword}, '%')
+		</if>
+		limit #{start}, #{num}
+	</select>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_pboard
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE ptitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE pcontent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE ptitle LIKE concat('%', #{keyword}, '%')
+			or pcontent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("작성자")'>
+			WHERE pwriter LIKE concat('%', #{keyword}, '%')
+		</if>
+	</select>
+
+
+	<select id="read" resultType="com.example.domain.PboardVO">
+	select
+		pcode, ptitle, pcontent,
+		pwriter, pimage, pprice, regDate, viewcnt, plike, pname,upoint
+		from tbl_pboard p
+        inner join tbl_user u
+		on u.unickname=p.pwriter
+        where pcode=#{pcode}
+	</select>
+
+	<insert id="insert">
+		insert into tbl_pboard
+		(pcode,ptitle,pcontent,pwriter,pimage,pprice,pname)
+		values
+		(#{pcode},#{ptitle},#{pcontent},#{pwriter},#{pimage},#{pprice},#{pname})
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_pboard where pcode=#{pcode}
+	</delete>
+
+	<update id="update">
+		update tbl_pboard set ptitle=#{ptitle},
+		pcontent=#{pcontent}, pimage=#{pimage}, pprice=#{pprice}, pname=#{pname}
+		where
+		pcode=#{pcode}
+	</update>
+
+	<update id="updateViewcnt">
+		update tbl_pboard
+		set viewcnt=viewcnt+1
+		where
+		pcode=#{pcode}
+	</update>
+
+	<select id="best" resultType="com.example.domain.PboardVO">
+		select * from tbl_pboard
+		order by plike desc 
+		limit 0,6;
+	</select>
+
+	<update id="updateLove">
+		update tbl_pboard p set plike=
+		(select count(*) from
+		tbl_like_pboard l
+		where lovecondition=1 and p.pcode=l.pcode)
+	</update>
+	
+	<update id="updateSold">
+	update tbl_pboard set pcondition=1
+	where pcode=#{pcode}
+	</update>
+
+
+</mapper>

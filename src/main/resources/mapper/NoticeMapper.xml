@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.NoticeMapper">
+
+	<select id="list" resultType="com.example.domain.NoticeVO">
+		select * from tbl_notice
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE ntitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE ncontent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE ntitle LIKE concat('%', #{keyword}, '%')
+			or ncontent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+		limit #{start}, #{num}
+	</select>
+
+	<insert id="insert">
+		insert into tbl_notice(ntitle, ncontent, nwriter)
+		values(#{ntitle}, #{ncontent}, #{nwriter})
+	</insert>
+
+	<select id="read" resultType="com.example.domain.NoticeVO">
+		select * from tbl_notice
+		where
+		ncode=#{ncode}
+	</select>
+
+	<update id="update">
+		update tbl_notice set ntitle=#{ntitle},
+		ncontent=#{ncontent},
+		nwriter=#{nwriter}
+		where ncode=#{ncode}
+	</update>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_notice
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE ntitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE ncontent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE ntitle LIKE concat('%', #{keyword}, '%')
+			or ncontent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+	</select>
+
+	<delete id="delete">
+		delete from tbl_notice where ncode=#{ncode}
+	</delete>
+	
+</mapper>

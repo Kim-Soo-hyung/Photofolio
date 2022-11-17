@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.EventMapper">
+	 <select id="list"
+		resultType="com.example.domain.EventVO">
+		select
+		ecode, etitle, econtent,
+		ewriter,regDate
+		from tbl_event
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE etitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE econtent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE etitle LIKE concat('%', #{keyword}, '%')
+			or econtent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+		
+		limit #{start}, #{num}
+	</select>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from tbl_event
+		<if test='searchType != null &amp;&amp; searchType.equals("제목")'>
+			WHERE etitle LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("내용")'>
+			WHERE econtent LIKE concat('%', #{keyword}, '%')
+		</if>
+		<if test='searchType != null &amp;&amp; searchType.equals("제목과 내용")'>
+			WHERE etitle LIKE concat('%', #{keyword}, '%')
+			or econtent
+			LIKE concat('%', #{keyword}, '%')
+		</if>
+	</select>
+ 	 
+ 	  <select id="read" resultType="com.example.domain.EventVO">
+	 	select * from tbl_event where ecode=#{ecode};
+ 	 </select>
+ 	 
+ 	 <delete id="delete">
+ 	 	delete from tbl_event where ecode=#{ecode}
+ 	 </delete>
+ 	 
+ 	 <insert id="insert">
+ 	 	insert into tbl_event(ecode,etitle,econtent,ewriter)
+ 	 	values(#{ecode},#{etitle},#{econtent},#{ewriter})
+ 	 </insert>
+ 	 
+ 	 <update id="update">
+ 	 	update tbl_event set etitle=#{etitle} , econtent=#{econtent}
+ 	 	where ecode=#{ecode}
+ 	 </update>
+ 	 
+</mapper>
