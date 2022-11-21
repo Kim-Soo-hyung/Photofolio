@@ -1,0 +1,29 @@
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev
+{
+    background-color: rgb(10, 61, 59);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60%;
+    opacity: 50%;
+}
+.slick-slide sc-dkrFOg ceRrdL slick-arrow slick-prev{
+    cursor: pointer;
+  }
+
+.slick-next::before,
+.slick-prev::before{
+display:none;
+}
+
+.slick-prev{
+    left:50px;
+}
+
+.slick-next{
+    right: 50px;
+}

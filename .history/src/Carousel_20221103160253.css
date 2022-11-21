@@ -1,0 +1,25 @@
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev
+{
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+    opacity: 50%;
+}
+
+
+.slick-next::before,
+.slick-prev::before{
+    display: -moz-box
+}
+.slick-prev{
+    left:60px;
+}
+.slick-next{
+    right: 60px;
+}

@@ -1,0 +1,24 @@
+import { CircularProgress } from '@material-ui/core'
+import React from 'react'
+
+const HomePage = () => {
+  return (
+    <div>
+          <img
+            sizes='100vw'
+            className="d-block w-100"
+            src="/image/main.png"
+             />
+             
+          <img
+            sizes='100vw'
+            className="d-block w-100"
+            src="/image/main2.png"
+             />
+      
+      
+    </div>
+  )
+}
+
+export default HomePage

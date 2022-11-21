@@ -1,0 +1,50 @@
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+
+const LoginRestore = ({ history,match }) => {
+ const uid=match.params.uid;
+
+
+  const OnSubmitRestore = async () => {
+    if (!window.confirm('아이디를 복원하시겠습니까?')) return;
+
+    const formData = new FormData();
+
+   
+    formData.append("uid", uid);
+    try {
+      await axios.post('/api/user/restore', formData);
+      Swal.fire({
+        text: "아이디 복원을 완료하였습니다!",
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+      })
+      history.push('/login/form');
+    } catch (e) {
+      if (e) alert('예상치 못한 오류가 발생하였습니다.')
+      
+    }
+  }
+
+
+
+
+
+
+
+  return (
+    /*모달창 넣기*/
+    <Navbar style={{ marginTop: 300 }} className='fixed-top' bg='secondary' variant="dark">
+      <Container>
+        <Nav >
+          <Button onClick={OnSubmitRestore}>계정복구</Button>
+        </Nav>
+      </Container>
+    </Navbar>
+  )
+}
+
+export default LoginRestore

@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrap {
+    height: 1000px;
+    padding: 40px 0;
+    background-color: #A8C0D6;
+    overflow-y: scroll;
+}
+
+.wrap::-webkit-scrollbar {
+    width: 20px;
+}
+
+.wrap::-webkit-scrollbar-thumb {
+    background-color: #A0A5B2;
+}
+
+.wrap::-webkit-scrollbar-track {
+    display: none;
+    
+}
+
+.wrap::-webkit-scrollbar-button {
+    display: none;
+}
+
+.wrap .chat {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+
+
+
+/* 모든 채팅메시지 칸 크기 조절
+ */
+ .wrap .chat .textbox {
+    position: relative;
+    display: inline-block;
+    max-width: calc(100% - 70px);
+    padding: 10px;
+    margin-top: 7px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+
+
+
+/* 채팅메시지 칸에 붙은 before 꼬랑지 크기 조절
+ */
+ .wrap .chat .textbox::before {
+    position: absolute;
+    display: block;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+/* 남 채팅이 남 채팅인 것인지 알수있게 살짝 왼쪽으로 삐져나옴
+ */.wrap .ch1 .textbox::before {
+    left: -15px;
+    content: "◀";
+    color: #ddd;
+}
+
+/* 내채팅은 남들 채팅 반댸편에 나오게 출력 */
+.wrap .ch2 {
+    flex-direction: row-reverse;
+}
+
+
+
+.wrap .ch2 .textbox::before {
+    right: -15px;
+    content: "▶";
+    color: #F9EB54;
+}
+
+/* 남이 친 채팅 메시지 배경색
+ */ 
+.wrap .ch1 .textbox {
+    margin-left: 20px;
+   background-color: #ddd;
+    white-space: pre-line;
+}
+
+/*     내가 친 채팅 메시지 노란 배경색
+ */  
+.wrap .ch2 .textbox {
+    margin-right: 20px;
+  background-color: #F9EB54; 
+    white-space: pre-line;
+}

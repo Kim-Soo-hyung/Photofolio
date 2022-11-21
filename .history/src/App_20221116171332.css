@@ -1,0 +1,261 @@
+.App {
+  text-align: center;
+  font-family: "font";
+ 
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+  min-height: 400px;
+  margin-bottom: 20px;
+}
+
+
+
+div .fixed{
+  transform: translate(-100%, 0);
+  transform: translate(0, 0);
+  height: 40px;
+} 
+
+
+.slick-slide > div img{
+  margin:0px auto;
+  }
+
+.slick-slide > div .item {
+  position: relative;
+}
+
+.slick-slide > div .item .title{
+  position: absolute;
+  left:15%;
+  top: 6%;
+  color: red;
+  font-size: 1.5rem;
+}
+
+
+@font-face {
+  font-family: "font";
+  src: url("../public/establish Retrosans.ttf");
+}
+
+.modal-address {
+  position: fixed;
+  z-index: 10000;
+  left: 20%;
+  width: 50%;
+  padding: 20px;
+}
+
+.btn-10 {
+  background: rgb(22,9,240);
+background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.btn-10:after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(.1);
+  transform: scale(.1);
+}
+.btn-10:hover {
+  color: rgb(121, 37, 37);
+  border: none;
+  background: transparent;
+}
+.btn-10:hover:after {
+  background: rgb(0,3,255);
+background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.slick-list {
+	margin-right: -10px;
+  padding-right: 20px;
+}
+ 
+.slick-slide {
+	padding-right: 20px;
+}
+
+
+
+.img4 {
+  width: 900px;
+  height: -50px;
+  margin-top: 60px;
+  margin-left: 100px;
+  margin-bottom: -100px;
+  text-align: center;
+  top: 30px;
+}
+.img2{
+  width:800px;
+  margin-bottom: -40px;
+  text-align: center;
+  margin-left: auto; 
+  margin-right: auto;
+  
+ 
+   
+
+
+}
+
+.img20{
+  width:200px;
+  margin-left: 500px; 
+  margin-top: -600px;
+  margin-bottom: 600px;
+}
+
+.img3{
+  width:700px;
+  margin-bottom: 10px;
+  
+  margin-left: 10px; 
+  margin-right: auto;
+  
+ 
+ 
+}
+.img5{
+  width: 870px;
+  margin-bottom: 80px;
+  margin-top: 1px;
+  
+  margin-left: 870px; 
+  margin-right: 80px;
+ 
+  
+}
+.animate__backInLeft{
+  width: 850px;
+  margin-bottom: 40px;
+  margin-top: -414px;
+  margin-right: 100px;
+}
+
+.img10{
+  width: 300px;
+  margin-left: 1115px;
+  margin-bottom: 20px;
+  margin-top: -250px;
+}
+
+.box-container {
+	display: flex;
+}
+
+.box13-container {
+	display: flex;
+}
+
+.box13 {
+	transition: 1s;
+}
+
+.box13:hover {
+	transform: skew(-30deg);
+}
+
+
+.box {
+	transition: 1s;
+}
+
+.box:hover {
+	transform: scale(1.5);
+}
+
+.ppp{
+  text-align: left;
+}
+
+.search,.search2 {
+  width: 120%;
+  padding-left: 1000px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.ff{
+  margin-left: -30px;
+}
+
+.ff1{
+  margin-left: 60px;
+}
+
+.animate__animated.animate__fadeInLeftBig {
+  --animate-duration: 2s;
+  margin-bottom: 70px;
+}
+
+.box12{
+  float: left;
+  width: 200px;
+  height: 50px;
+  border: 1px solid pink;
+  box-shadow: 0 0 15px -5px rgba(14, 1, 1, 0.4);
+  background-color: rgb(255, 255, 255);
+  animation: rotate 2s linear, scale 2s linear 1s;
+  margin-left: 800px;
+}
+@keyframes rotate{
+  to{
+      background-color: lightblue;
+      transform: translate(100px, 100px) rotate(360deg);
+  }
+}
+@keyframes scale{
+  to{
+      background-color: rgb(255, 255, 255);
+      transform: scale(1.5);
+  }
+
+}
+.animate__swing {
+  --animate-duration: 2s;
+  margin-bottom: 30px;
+}
+@keyframes ball {
+  0% {
+    top:0px;
+  }
+  95% {
+    width: 100px;
+  }
+  to {
+    top:100px;
+    width:115px;
+    height:90px
+  } 
+}
+
+.ball{
+  margin-left: -120px;
+  margin-top: -1700px;
+  margin-bottom: 300px;
+  position:relative;
+  left: 100px;
+  top:0;
+  width:100px;
+  height:100px;
+  border-radius:60%;
+  background:rgb(9, 5, 245);
+  animation:ball 4s ease-in Infinite Alternate;
+}
+
+    
